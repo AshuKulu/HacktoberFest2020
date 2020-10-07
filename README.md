@@ -45,3 +45,7 @@ To earn your Hacktoberfest tee or tree reward, you must register and make four v
     2. Add a file
     3. commit the code
     4. Make pull request
+    <h3>typing speed demo website</h3>
+    -just for designing layout.
+    -just to test what you can do.
+    -try to change it in a better way
