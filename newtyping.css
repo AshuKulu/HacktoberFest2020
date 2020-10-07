@@ -1,0 +1,289 @@
+.w3-sidebar {
+    display:none !important
+  }
+  .w3-sidebar.w3-collapse{
+    display:none !important
+  }
+  .w3-main {
+    margin-left:0 !important
+  }
+  .w3-main{transition:margin-left 0s;}
+  a.topnav-icons.fa-menu  {
+    display:none;
+  }
+  div {
+    display: block;
+}
+  
+  div.typingtest {
+    background-color: #d4edda;
+    text-align:center;
+    font-family:Roboto;
+    padding-bottom:40px;
+  }
+  .typingtest h1, .typingtest h2 {
+    font-family:Roboto;
+  }
+  .typingtest #words,.typingtest #time {
+    font-size:50px;
+  }
+  .typingtest #characters,.typingtest #errors {
+    font-size:30px;
+  }
+  .typingtest .corchar {
+    color:rgba(30, 144, 255,0.5);
+  }
+  .typingtest .errchar {
+    color:rgba(0,0,0,0.5);
+    background-color:rgba(255, 0, 0,0.2);
+  }
+  .typingtest #atext,.typingtest #btext,.typingtest #ctext,.typingtest #dtext {
+    font-family:Roboto Mono;
+    font-size:36px;
+    padding:40px;
+    width:100%;
+    text-align:left;
+  }
+  
+  .typingtest #btext,.typingtest #ctext,.typingtest #dtext {
+    position:absolute;
+  }
+  
+  .typingtest #dtext {
+    padding-top:0;
+    padding-bottom:0;
+    height:auto;
+    visibility:hidden;
+  }
+  
+  .typingtest .donechars {
+    color:transparent;
+  }
+  .typingtest #timefooter {
+    opacity:0.5;
+  }
+  
+  #finishdiv {
+    display:none;
+  }
+  
+  #phonebutton {
+    display:none;
+  }
+  @media (max-width:600px) {
+    .typingtest #atext,.typingtest #btext,.typingtest #ctext,.typingtest #dtext {
+      font-size:24px;
+      padding:20px;
+    }
+    .w3-info {
+      padding:1px;
+    }
+    #ctext {
+    caret-color:transparent;
+    }
+    .typingtest #words,.typingtest #time {
+      font-size:30px;
+    }
+    .typingtest #characters,.typingtest #errors {
+      font-size:20px;
+    }
+    h1 {
+    font-size:24px;
+    }
+    .typingtest #timefooter {
+      font-size:14px;
+    }
+    #phonebutton {
+      display:block;
+      font-size:12px;
+      opacity:0.5;
+    }
+  }
+  #main {
+    padding:16px 32px 32px 32px;
+    border-right: 1px solid #f1f1f1;
+  }
+  #right {
+    padding:16px 8px;
+  }
+  .sidesection .w3-left-align {
+    text-align:center!important;
+  }
+  #footer {padding:32px;border-top:1px solid #f1f1f1;}
+  #footer hr:first-child {
+    display:none;
+  }
+  .w3-info {
+    background-color: #d4edda;
+    border-left: none;
+    padding:32px;
+    margin:24px;
+    margin-left:-32px;
+    margin-right:-32px;
+  }
+  .w3-example {
+    padding: 8px 20px;
+    margin: 24px -20px;
+    box-shadow:none!important;
+  }
+  .w3-note, .w3-warning {
+    border-left: none;
+  }
+  .w3-panel {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left:-32px;
+    margin-right:-32px;
+    padding:16px 32px;
+  }
+  h1 {
+    font-size: 42px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  .w3-btn:hover,.w3-btn:active,.w3-example a:focus,.nextprev a:focus {
+    box-shadow: none;
+    background-color: #46a049!important;
+  }
+  .w3-btn, .w3-btn:link, .w3-btn:visited {color:#FFFFFF;background-color:#4CAF50}
+  .w3-btn:hover.w3-blue,.w3-btn:active.w3-blue,.w3-button:hover.w3-blue,.w3-button:active.w3-blue {
+    background-color: #0d8bf2!important;color: #fff!important;
+  }
+  .w3-btn:hover.w3-white,.w3-btn:active.w3-white,.w3-button:hover.w3-white,.w3-button:active.w3-white {
+    background-color: #f1f1f1!important;
+  }
+  .nextprev .w3-btn:not(.w3-left):not(.w3-right):hover,.nextprev .w3-btn:not(.w3-left):not(.w3-right):active,.nextprev .w3-btn:not(.w3-left):not(.w3-right):focus {
+    background-color: #f1f1f1!important;
+  }
+  a.btnsmall:hover {box-shadow:none;}
+  a.btnsmall:active,a.btnsmall:hover {color:#fff;}
+  a.btnplayit:hover,a.btnplayit:active {background-color:#ff9900!important;color:#fff}
+  a.btnplayit:hover {box-shadow:none;}
+  #w3-exerciseform {
+    padding: 20px;
+    margin:32px -20px;
+  }
+  p {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    font-size: 15px;
+  }
+  hr {
+    margin:20px -16px;
+  }
+  .w3-codespan {
+    font-size:105%;
+  }
+  .w3-example p,.w3-panel p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .w3-code{
+    font-size:15px;
+  }
+  #midcontentadcontainer,#mainLeaderboard {
+    text-align:center;
+    margin-left:-20px;
+    margin-right:-20px;
+  }
+  
+  .adtext {
+   font-family: "Segoe UI",Arial,sans-serif;
+   font-size: 14px;
+   color: #777;
+   margin: 0 auto;
+   padding:0;
+  }
+  @media screen and (max-width:600px) {
+  .w3-example, #w3-exerciseform {margin-left:-32px;margin-right:-32px;}
+  }
+  
+  @media only screen and (max-device-width: 480px) {
+  #main {padding:24px}
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  .w3-example {
+    padding: 8px 16px;
+    margin: 24px -24px;
+  }
+  #w3-exerciseform {
+    padding: 8px 16px 16px 16px;
+    margin: 24px -24px;
+  }
+  .w3-panel,.w3-info {
+    margin-left:-24px;
+    margin-right:-24px;
+  }
+  
+  }
+  .top {
+    position:relative;
+    background-color:#ffffff;
+    height:68px;
+    padding-top:20px;
+    line-height:50px;
+    overflow:hidden;
+    z-index:2;
+    }
+#leftmenuinner {
+        position:fixed;
+        top:0;
+        padding-top:112px;
+        padding-bottom:0;    
+        height:100%;
+        width:220px;
+        background-color:transparent;
+        }
+#mainLeaderboard {height:90px}
+.w3-col, .w3-half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
+    float: left;
+    width: 100%;
+}
+.w3-large {
+    font-size: 18px!important;
+}
+.w3-btn, .w3-button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+/*button {
+  appearance: button;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(buttontext, rgb(170, 170, 170));
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: -internal-light-dark(rgb(239, 239, 239), rgb(74, 74, 74));
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
+  border-image: initial;
+}*/
+*, *:before, *:after {
+    box-sizing: inherit;
+}
