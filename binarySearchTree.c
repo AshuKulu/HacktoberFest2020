@@ -1,12 +1,12 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include<bits/stdc++.h>
+using namespace std;
 struct node
 {   int data;
-	struct node* left;
-	struct node* right;
+	 node* left;
+	 node* right;
 };
 struct node* createNode(int value){
-	struct node* newNode = malloc(sizeof(struct node));
+	 node* newNode = new node();
 	newNode->data = value;
 	newNode->left = newNode->right= NULL;
 	return newNode;
@@ -20,12 +20,12 @@ struct node* insert(struct node* root, int data)
 void inorder(struct node* root){
 	if(root == NULL) return;
 	inorder(root->left);
-	printf("%d ", root->data);
+	cout << root->data << " ";
 	inorder(root->right);
 }
 void preorder(struct node* root){
 	if(root == NULL) return;
-	printf("%d ", root->data);
+	cout << root->data << " ";
 	preorder(root->left);
 	preorder(root->right);
 }
@@ -33,20 +33,22 @@ void postorder(struct node* root){
 	if(root == NULL) return;
 	postorder(root->left);
 	postorder(root->right);
-	printf("%d ", root->data);
+	cout << root->data << " ";
 }
 int main(){
 	int inp, rt;
-	struct node *root = NULL;
-	printf("Enter the value of the ROOT:\n");
-	scanf("%d", &rt);
+    node *root = NULL;
+	cin >> rt;
 	root = insert(root, rt);
-	while(1){	printf("Enter Value or -1 to STOP:\n");
-    			scanf("%d", &inp);
+	while(1){
+    			cin >> inp;
     			if(inp==-1){break;}
     			insert(root, inp);		}
- 
-	printf("Your INORDER output is:\n"); inorder(root);
-	printf("\nYour PREORDER output is:\n"); preorder(root);
-	printf("\nYour POSTORDER output is:\n"); postorder(root);
+
+	 inorder(root);
+	 cout << endl;
+	 preorder(root);
+	 cout << endl;
+	 postorder(root);
+	 cout << endl;
 }
