@@ -44,7 +44,7 @@ scanf("%d",&choice);
 temp=head;
 while(temp!=NULL){
 printf("%d",temp->data);
-temp=temp->next;
+temp=temp->next;// hello
 }
 reverse();
 temp=head;
