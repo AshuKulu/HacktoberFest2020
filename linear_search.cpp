@@ -25,32 +25,12 @@ int main()
     for(i=0;i<n;++i)
     {
       
-
       if(key==array[i]&&i<n)
         
         cout<<i+1<<"\n";
       
-         
-      }
-      
-
-    
-    
-      
-
-    
-      
-
-      
-      
-      
-      
-      
-      
-      
-      
-
     }
+}
      
 
       
