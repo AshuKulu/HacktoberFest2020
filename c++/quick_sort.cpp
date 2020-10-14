@@ -48,7 +48,7 @@ void displayArray(int arr[], int size)
 
 int main()
 {
-    int arr[] = {3,23,12,43,51,85,99,45}; 
+    int arr[] = {3,23,12,43,51,85,99,45};
     int n = sizeof(arr)/sizeof(arr[0]);
     cout<<"Input array"<<endl;
     displayArray(arr,n);
