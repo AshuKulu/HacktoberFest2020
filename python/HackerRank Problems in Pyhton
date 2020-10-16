@@ -1,0 +1,253 @@
+
+## Cavity Map
+
+LINK : https://www.hackerrank.com/challenges/cavity-map/problem
+
+# my code:
+n = int(input())
+ar = []
+for _ in range(n):
+    ar.append(list(input()))
+
+x = [[0 for _ in range(n)] for _ in range(n)]
+
+for i in range(1, n-1):
+    for j in range(1, n-1):
+        e = ar[i][j]
+        if ar[i][j-1] < e and ar[i][j+1] < e and ar[i-1][j] < e and ar[i+1][j] <e:
+            x[i][j] = 'X'
+
+for i in range(n):
+    for j in range(n):
+        if x[i][j] == 'X':
+            ar[i][j] = 'X'
+
+for row in ar:
+    print(''.join(row))
+
+
+##############################################
+
+## Big Sorting
+
+LINK : https://www.hackerrank.com/challenges/big-sorting/problem?h_r=profile
+
+# from discussion
+# timeout issue in some test cases for my code
+
+unsorted.sort(key=int)
+for s in unsorted:
+    print(s)
+
+##############################################
+
+
+## The time in words
+
+LINK : https://www.hackerrank.com/challenges/the-time-in-words/problem
+
+# my code
+
+h = int(input())
+m = int(input())
+
+n2w = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve",
+       "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty one",
+       "twenty two", "twenty three", "twenty four", "twenty five", "twenty six", "twenty seven", "twenty eight",
+       "twenty nine"]
+
+if m == 0:
+    print("{} o' clock".format(n2w[h]))
+elif m == 1:
+    print("one minute past {}".format(n2w[m], n2w[h]))
+elif m == 59:
+    print("one minute to {}".format(n2w[h + 1]))
+elif 0 < m < 30 and m != 15 and m != 1:
+    print("{} minutes past {}".format(n2w[m], n2w[h]))
+elif m == 15:
+    print("quarter past {}".format(n2w[h]))
+elif m == 30:
+    print("half past {}".format(n2w[h]))
+elif m > 30 and m != 45 and m != 59:
+    print("{} minutes to {}".format(n2w[60 - m], n2w[h + 1]))
+elif m == 45:
+    print("quarter to {}".format(n2w[h + 1]))
+
+##############################################
+
+## Chocolate Feast
+
+LINK : https://www.hackerrank.com/challenges/chocolate-feast/problem
+
+# my code
+
+for _ in range(int(input())):
+    n, c, m = map(int, input().split())
+
+    first = n // c
+    wrap = first
+    count = first
+    while wrap >= m:
+        wrap = wrap - m + 1
+        count += 1
+    print(count)
+
+##############################################
+
+## Lisa's Workbook
+
+LINK : https://www.hackerrank.com/challenges/lisa-workbook/problem
+
+# my code
+
+n, k = map(int, input().split())
+ar = list(map(int, input().strip().split()))
+pg = []
+for i in range(n):
+    ques = ar[i]
+    last = 1
+    while ques != 0:
+        if ques > k:
+            pg.append((last, last + k - 1))
+            ques -= k
+            last += k
+        else:
+            pg.append((last, last + ques - 1))
+            break
+count = 0
+for j in range(len(pg)):
+    if pg[j][0] <= (j + 1) <= pg[j][1]:
+        count += 1
+    else:
+        pass
+print(count)
+
+##############################################
+
+## Flatland Space Stations
+
+LINK : https://www.hackerrank.com/challenges/flatland-space-stations/problem
+
+# my code
+# 2 (out of 20) testcases failed : timeout
+
+n, m = map(int, input().split())
+ar = list(map(int, input().strip().split()))
+dist = [0 for _ in range(n)]
+
+for i in range(n):
+    pos = []
+    if i not in ar:
+        for s in ar:
+            pos.append(abs(s-i))
+        dist[i] = min(pos)
+print(max(dist))
+
+
+# from discussion
+
+def flatlandSpaceStations(n, c):
+    lis = [0] * n
+    for i in c:
+        lis[i] = 1
+    max1 = 0
+    ch = 0
+    flag = True
+    first = 0
+    last = 0
+    for j in range(len(lis)):  # 0 0 0 0 0 1 0 0 0 1 0 0 0 0
+        if lis[j] == 0:
+            ch += 1
+        if flag:
+            first = ch
+        if j == len(lis) - 1 and lis[j] == 0:
+            last = ch
+        if lis[j] == 1:
+            if max1 < ch:
+                max1 = ch
+            ch = 0
+            flag = False
+    if last >= (max1 + 1) // 2 and first <= last:
+        return last
+    if first >= (max1 + 1) // 2 and first >= last:
+        return first
+    return (max1 + 1) // 2
+
+
+n, m = map(int, input().split())
+c = list(map(int, input().split()))
+
+print(flatlandSpaceStations(n, c))
+
+##############################################
+
+## Super Reduced String
+
+LINK : https://www.hackerrank.com/challenges/reduced-string/problem
+
+# my code:
+
+s = list(input().strip())
+ar = s
+i = 0
+while i < (len(ar) - 1):
+    if s[i] == s[i + 1]:
+        del s[i:i + 2]
+        i = 0
+    else:
+        i += 1
+if len(ar) > 0:
+    print(''.join(ar))
+else:
+    print('Empty String')
+
+##############################################
+
+## ACM ICPC Team
+
+LINK : https://www.hackerrank.com/challenges/acm-icpc-team/problem
+
+# my code (very inefficient)
+# (timed out)
+
+from itertools import combinations as cm
+n, m = map(int, input().split())
+know = []
+for _ in range(n):
+    know.append(list(map(int, list(input()))))
+teams = list(cm(range(n), 2))
+total = []
+
+for i in teams:
+    a = i[0]
+    b = i[1]
+    count = 0
+    for j in range(m):
+        if know[a][j] or know[b][j]:
+            count += 1
+    total.append(count)
+c = 0
+for i in total:
+    if i == max(total):
+        c += 1
+
+print(max(total), c, sep='\n')
+
+
+# from discussion
+# brilliant
+
+def acmTeam(topics):
+    comb = combinations(topics,2)
+    m = 0
+    count = 0
+    for i in comb:
+        n = str(bin(((int(i[0],2) | int(i[1],2)))))[2:].count('1')
+        if n > m:
+            m = n
+            count = 1
+        elif n == m:
+            count += 1
+    return (m, count)
+
+##############################################
