@@ -1,5 +1,5 @@
-# Simple Calculator in python
-# @Author Srinidh Reddy
+''' Simple Calculator in python
+ @Author Srinidh Reddy'''
 
 class cal():
     def __init__(self,a,b):
@@ -14,9 +14,9 @@ class cal():
     def sub(self):
         return self.a - self.b
     def mod(self):
-        # Modulo operator works like a % b returns remainder when a is divided by b
-        # example 7 % 3 == 1  
-        return self.a % self.b   
+        ''' Modulo operator works like a % b returns remainder when a is divided by b
+         example 7 % 3 == 1  
+        return self.a % self.b ''' 
 
 a=int(input("Enter first number: "))
 b=int(input("Enter second number: "))
@@ -45,6 +45,3 @@ while choice != 0:
         print("Exiting the calculator")
     else:
         print("Invalid choice!!")
- 
- 
-print()
