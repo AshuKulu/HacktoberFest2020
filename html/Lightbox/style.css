@@ -1,0 +1,137 @@
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height: 100vh;
+}
+.grid{
+    display:grid;
+    width:100%;
+    height: 100vh;
+    grid-template-columns: repeat(3,200px);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1em;
+}
+.grid img{
+    width:200px;
+    height: 200px;
+    cursor: pointer;
+    
+}
+.background{
+    position: absolute;
+    /* top:0; */
+    right: 0;
+    left:0;
+    /* bottom: 0; */
+    width:100%;
+    /* height:100%; */
+    background:rgba(0,0,0,.8);
+    display:none;
+    /* transition: all 5s ease-in-out; */
+    
+    
+    /* display:flex;
+    justify-content: center;
+    align-items: center; */
+}
+.body.overlay{
+    scroll-behavior: none;
+    scrollbar-width: 0;
+    overflow-y: hidden;
+}
+.imgBox{
+    position:relative;
+    width:65%;
+    height:500px;
+    border:solid 2px white;
+    transform: scale(0);
+    transition:transform 5s ease;
+}
+.imgBox button{
+    position: absolute;
+    width:50px;
+    height: 50px;
+    background:rgb(31, 30, 30);
+    top:-60px;
+    z-index:3;
+    right:-60px;
+    color:white;
+    font-size: 32px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border:none;
+    outline:none;
+
+}
+.background.active{
+    position:absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    z-index:9;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    
+    
+}
+.background.active body{
+    overflow-y: hidden;
+}
+.background.active .imgBox{
+    transform: scale(1);
+}
+.imgBox img{
+    width:100%;
+    height:100%;
+}
+@media only screen and  (max-width:750px){
+    .grid{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .imgBox{
+        height: 250px;
+
+    }
+    .imgBox button{
+        position: absolute;
+        width:50px;
+        height: 50px;
+        background:rgb(31, 30, 30);
+        top:-60px;
+        z-index:3;
+        right:0px;
+        color:white;
+        font-size: 32px;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        border:none;
+        outline:none;
+    
+    }
+    .background{
+        width:100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background:rgba(0,0,0,.8);
+        display:none;
+    }
+    .background.active{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+        z-index:9;
+        width:100%;
+        height:100%;
+        
+        
+    }
+}
