@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node *next;
+}*head;
+void create (int n);
+void display();
+void remove_dup();
+int main()
+{
+    int n;
+    printf("\nNumber of nodes: ");
+    scanf("%d",&n);
+    create(n);
+    remove_dup();
+    printf("\nUnique elements: ");
+    display();
+}
+void create(int n)
+{
+    struct node *newnode,*temp;
+    int data,i;
+    head=(struct node*)malloc(sizeof(struct node));
+    if(head==NULL)
+    printf("\n Unable to allocate memeory.");
+    else
+    {
+    	printf("\nData: ");
+        scanf("%d",&data);
+        head->data=data;
+        head->next=NULL;
+        temp=head;
+        for(i=2;i<=n;i++)
+        {
+            newnode=(struct node*)malloc(sizeof(struct node));
+            if(newnode==NULL)
+            printf("\n Unable to allocate memeory.");
+            else
+            {
+                scanf("%d",&data);
+                newnode->data=data;
+                newnode->next=NULL;
+                temp->next=newnode;
+                temp=temp->next;
+            }
+        }
+    }
+}
+void remove_dup()
+{
+    struct node *current = head, *index = NULL, *temp = NULL;
+
+    if(head == NULL)
+	{
+        return;
+    }
+    else
+	{
+        while(current != NULL)
+		{   temp = current;
+            index = current->next;
+            while(index != NULL)
+			{
+                if(current->data == index->data)
+				{
+                    temp->next = index->next;
+                }
+                else
+				{
+                    temp = index;
+                }
+                index = index->next;
+            }
+            current = current->next;
+        }
+    }
+}
+void display()
+{
+    struct node *temp;
+    if(head==NULL)
+    printf("\n List is empty.");
+    else
+    {
+        temp=head;
+        while(temp!=NULL)
+        {
+            printf("%d ",temp->data);
+            temp=temp->next;
+        }
+    }     }
