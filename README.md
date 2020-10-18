@@ -52,3 +52,61 @@ To earn your Hacktoberfest tee or tree reward, you must register and make four v
         Thank You
     </p>
 </h2>
+
+***
+
+<h1 align="center"> Hacktoberfest 2020 </h1>
+<h2 align="center"> Indonesian Language </h2>
+
+***
+
+## Detail Acara :
+
+- Hacktoberfest® terbuka untuk semua orang di komunitas global kami. Baik Anda seorang pengembang, siswa yang belajar kode, pembawa acara acara, atau perusahaan dalam skala apa pun, Anda dapat membantu mendorong pertumbuhan sumber terbuka dan memberikan kontribusi positif bagi komunitas yang terus berkembang. Semua latar belakang dan tingkat keahlian didorong untuk menyelesaikan tantangan.
+
+- Hacktoberfest adalah perayaan terbuka untuk semua orang di komunitas global kami.
+- Pull requests dapat dibuat di semua GitHub-hosted repositories atau projects.
+- Anda dapat mendaftar kapan saja antara 1 Oktober hingga 31 Oktober.
+
+## Aturan HacktoberFest :
+
+Untuk mendapatkan hadiah tee atau tree Hacktoberfest Anda, Anda harus mendaftar dan membuat empat permintaan penarikan (PR) yang valid antara 1-31 Oktober (di zona waktu mana pun). PR dapat dibuat ke repo publik mana pun di GitHub, tidak hanya yang memiliki masalah berlabel Hacktoberfest. Jika pengelola melaporkan permintaan penarikan Anda sebagai spam atau perilaku yang tidak sejalan dengan kode etik proyek, Anda tidak akan memenuhi syarat untuk berpartisipasi. Tahun ini, 70.000 peserta pertama yang berhasil menyelesaikan tantangan berhak menerima hadiah.
+***
+
+<h3 align="center">
+    <a href="https://hacktoberfest.digitalocean.com/">
+        Link ke HacktoberFest 2020
+    </a>
+</h3>
+
+***
+<h3 align="center"> Baik itu permintaan tarik pertama atau kelima puluh, selalu ada lebih banyak hal yang harus dipelajari! Kami telah mengumpulkan beberapa sumber daya yang dapat membantu Anda membuat pull request yang berkualitas, menjaga repositori Anda tetap murni, dan membangun pengetahuan open source Anda. </h3>
+
+***
+
+<h3 align="center">
+    <a href="https://discord.com/invite/hacktoberfest/">
+       Join Percakapan Discord
+    </a>
+</h3>
+
+***
+## Aturan Untuk Berkontribusi Pada Repo Ini
+
+-   Gunakan semua bahasa.
+-   C, C++, JAVA, Data Structure and Algorithms, HTML, CSS.
+-   Sesuatu yang berharga.
+
+## Steps For Contribution
+
+    1. Fork repo ini
+    2. Star repo ini
+    3. Tambahkan file
+    4. Commit kodenya
+    5. Buat pull request
+***
+<h2 align="center">
+    <p>
+        Terima Kasih
+    </p>
+</h2>
