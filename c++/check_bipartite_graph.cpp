@@ -8,11 +8,9 @@ int flag=0;
 vector<int> graph[N];
 
 void checkBipartite(int node,vector<int> &visited,int parent,int color){
-
     visited[node] = color;
-
+    
     for(auto child:graph[node]){
-
         if(visited[child]==false){
             checkBipartite(child,visited,node,3-color);
         }
@@ -22,7 +20,6 @@ void checkBipartite(int node,vector<int> &visited,int parent,int color){
 }
 
 int main() {
-
     int vertex,edges;
     cin>>vertex>>edges;
 
