@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+        }
+        .header {
+            text-align: center;
+            font-size: 30px;
+            text-shadow: 2px 2px 5px #ffd571;
+        }
+        .box {
+            max-width: 750px;
+            background: #FAFAFA;
+            padding: 30px 50px;
+            margin: 50px auto;
+            box-shadow: 1px 1px 25px tomato;
+            border-radius: 20px;
+            border: 10px solid tomato;
+        }
+        input[type=text],
+        input[type=email],
+        select {
+            width: 100%;
+            padding: 12px 12px;
+            border: 2px solid tomato;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .btns {
+            margin: auto;
+            text-align: center;
+            padding-top: 20px;
+        }
+        input[type=radio]{
+            border: 2px solid tomato;
+        }
+        input[type=submit],
+        input[type=reset] {
+            background-color: #ffd571;
+            border: none;
+            color: #3c2946;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 2px;
+            border: 2px solid tomato;
+        }
+        option {
+            appearance: none;
+            display: block;
+            width: 75%;
+            height: 12px;
+            margin: 10px;
+            line-height: 20px;
+        }
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Customer Details</h1>
+    </div>
+    <div class="box">
+        <form name="customer-info" action="success.html" method="POST" onsubmit="return validation()">
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">First Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" placeholder="firstname" id="fname" name="fname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname">Last Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" placeholder="lastname" id="lname" name="lname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label>Gender</label>
+                </div>
+                <div class="col-75">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label><br>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                    <input type="email" placeholder="email" id="email" name="email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="phone">Phone number:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" placeholder="phone number" id="phone" name="phone" maxlength="10">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="address">Address</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" placeholder="house number" id="address" name="hno">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="pincode">Pincode</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" placeholder="pincode" id="pincode" name="pincode" maxlength="6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="state">State</label>
+                </div>
+                <div class="col-75">
+                    <select name="state" id="state">
+                        <option value="Telangana">Telangana</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="country">Country</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" placeholder="country" id="country" name="country">
+                </div>
+            </div>
+            <div class="btns">
+                <input type="submit">
+
+                <input type="reset">
+            </div>
+        </form>
+    </div>
+    <script>
+        //Highlighting the text field
+        var fname = document.forms["customer-info"]["fname"];
+        var lname = document.forms["customer-info"]["lname"];
+        var gender = document.forms["customer-info"]["gender"];
+        var email = document.forms["customer-info"]["email"];
+        var phone = document.forms["customer-info"]["phone"];
+        var address = document.forms["customer-info"]["address"];
+        var pincode = document.forms["customer-info"]["pincode"];
+        var country = document.forms["customer-info"]["country"];
+        function validation() {
+            if (fname.value == "") {
+                window.alert("Please enter your first name");
+                fname.focus();
+                return false;
+            }
+
+            if (lname.value == "") {
+                window.alert("Please enter your Last name");
+                lname.focus();
+                return false;
+            }
+
+            if (gender.value == "") {
+                window.alert("Select your gender");
+                return false;
+            }
+
+            if (email.value == "") {
+                window.alert("Please enter you email address.");
+                email.focus();
+                return false;
+            }
+
+            if (!phone.value.match(/^\d{10}$/)) {
+                window.alert("Enter valid 10 digit phone numbe");
+                phone.focus();
+                return false;
+            }
+
+            if (address.value == "" || address.value.length <= 20) {
+                window.alert("Please enter you correct address in greater than 20 characters.");
+                address.focus();
+                return false;
+            }
+
+            if (!pincode.value.match(/^\d{6}$/)) {
+                window.alert("Please enter you 6 digit postal code.");
+                pincode.focus();
+                return false;
+            }
+
+            if (country.value == "") {
+                window.alert("Please enter you email address.");
+                country.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

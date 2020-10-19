@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Compose Email</title>
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+		.container {
+			width: 100%;
+			height: 100vh;
+			background-color: tomato;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.compose {
+			width: 42rem;
+			height: 50rem;
+			background-color: #fff;
+			box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+			border-radius: 10px;
+		}
+		.form {
+			max-width: 40rem;
+			margin: 30px auto;
+			border-radius: 20px;
+			padding: 20px;
+		}
+		.form h1 {
+			display: block;
+			text-align: center;
+			margin: 0px 0px 20px 0px;
+			color: tomato;
+		}
+		.form ul {
+			list-style:none;
+		}
+		.form li {
+			display: block;
+			padding: 9px;
+			border: 2px solid tomato;
+			margin-bottom: 30px;
+			border-radius: 20px;
+		}
+		.form li:last-child {
+			border: none;
+			text-align: center;
+		}
+		.form li>label {
+			display: block;
+			float: left;
+			margin-top: -25px;
+			background: #FFFFFF;
+			height: 30px;
+			padding: 2px 5px 2px 5px;
+			color: black;
+			font-size: 20px;
+		}
+		.form input[type="text"],
+		.form input[type="email"],
+		.form select {
+			box-sizing: border-box;
+			width: 100%;
+			display: block;
+			outline: none;
+			border: none;
+			height: 30px;
+			line-height: 30px;
+			font-size: 18px;
+			padding: 0;
+		}
+		.form textarea {
+			box-sizing: border-box;
+			width: 100%;
+			display: block;
+			outline: none;
+			border: none;
+			line-height: 30px;
+			font-size: 18px;
+			padding: 10px;
+		}
+		.form li>span {
+			background: rgb(245, 211, 149);
+			display: block;
+			padding: 3px;
+			margin: 0 0 -9px 0;
+			text-align: center;
+			color: black;
+			font-size: 14px;
+			border-radius: 25px;
+		}
+		.form textarea {
+			resize: none;
+		}
+		.form input[type="submit"],
+		.form input[type="button"] {
+			background: tomato;
+			border: none;
+			padding: 10px 20px 10px 20px;
+			border-radius: 20px;
+			color: white;
+			width: 150px;
+			height: 40px;
+			font-size: 18px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="compose">
+			<form class="form">
+				<h1>Email</h1>
+				<ul>
+					<li>
+						<label for="email">To</label>
+						<input type="email" name="email">
+						<span>Enter valid email addresses separated by a comma</span>
+					</li>
+					<li>
+						<label for="text">Subject</label>
+						<input type="text" name="subject" maxlength="100">
+						<span>The purpose of the mail</span>
+					</li>
+					<li>
+						<label for="main">Body</label>
+						<textarea name="main" rows="10"></textarea>
+						<span>Explain the subject</span>
+					</li>
+					<li>
+						<input type="submit" value="Send Mail">
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
