@@ -1,0 +1,78 @@
+#include<stdio.h>
+
+struct students
+
+{
+
+  char name[20][30];
+
+  int age;
+
+  int roll_no;
+
+ struct date
+
+ {
+
+  int dd;
+
+  int mm;
+
+  int yyyy;
+
+ }d1[20];
+
+}st[20];
+
+int main()
+
+{
+
+ //struct students st[20];
+
+ int i,n;
+
+ //char name[20];
+
+// int age ,roll no.;
+
+ printf("\n Enter the no. of students :");
+
+ scanf("%d",&n);
+
+ for(i=1;i<=n;i++)
+
+ {
+
+  printf("\n Enter the name of %d student:",i);
+
+  scanf("%s",&st[i].name);
+
+  printf("\n Enter the roll no. of %d student :",i);
+
+  scanf("%d",&st[i].roll_no);
+
+  printf("\n Enter the roll no. of %d student :",i);
+
+  scanf("%d",&st[i].age);
+
+  printf("\n Enter the date of admission of %d student :",i);
+
+  scanf("%d/%d/%d",&st[i].d1[i].dd,&st[i].d1[i].mm,&st[i].d1[i].yyyy);
+
+}
+
+ printf("\n Details of students \nName  roll no.  age   DOA");
+
+ for(i=1;i<=n;i++)
+
+  {
+
+    printf("\n%s\t%d\t%d\t%d/%d/%d ",st[i].name,st[i].roll_no,st[i].age,st[i].d1[i].dd,st[i].d1[i].mm,st[i].d1[i].yyyy);
+
+  }
+
+ return 0;
+
+}
+
