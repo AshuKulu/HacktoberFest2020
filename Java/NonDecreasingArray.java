@@ -1,5 +1,3 @@
-package leetcode;
-
 public class NonDecreasingArray {
     public static boolean checkPossibility(int[] nums) {
         if (nums.length == 1) {
