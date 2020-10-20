@@ -15,7 +15,7 @@ int Ifact(int n)
 }
 int main()
 {
- int r=Ifact(5);
+ int r=fact(5);
  printf("%d ",r);
  return 0;
 } 
