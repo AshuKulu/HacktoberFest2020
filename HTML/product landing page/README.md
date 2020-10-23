@@ -1,5 +1,5 @@
 # Product landing Page
 
-![Jwellery](https://github.com/mahimasawant/HTML/product landing page/blob/master/Screenshot.png)
+![Jwellery](https://github.com/mahimasawant/HacktoberFest2020-5/blob/main/HTML/product landing page/Screenshot.png)
 
-![Jwellery](https://github.com/mahimasawant/HTML/product landing page/blob/master/Screenshot1.png)
+![Jwellery](https://github.com/mahimasawant/HacktoberFest2020-5/blob/main/HTML/product landing page/Screenshot1.png)
