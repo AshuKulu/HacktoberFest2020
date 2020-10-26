@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Object Detection Lite</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  </head>  
+  <body>
+    <h1>Object Detection Lite</h1>
+    
+    <section id="demos" class="invisible">
+
+      <p>Hold some objects up close to your webcam to get a real-time classification! When ready click "enable webcam" below and accept access to the webcam when the browser asks (check the top left of your window)</p>
+      
+      <div id="liveView" class="camView">
+        <button id="webcamButton">Enable Webcam</button>
+        <video id="webcam" autoplay width="640" height="480"></video>
+      </div>
+    </section>
+ <div class="handa" style="position: relative; float: right; ">
+        <span style="position: relative; float: left; ">
+            <span>&#169;</span>shreytrivedi <span>  </span>
+        </span>
+        <a target="_blank" href="https://www.facebook.com/shreytrivedi002/" class="fab fa-facebook"></a>
+        <a target="_blank" href="https://www.linkedin.com/in/shrey-trivedi-4a3270178/" class="fab fa-linkedin"></a>
+        <a target="_blank" href="https://www.instagram.com/trivedi.shrey/" class="fab fa-instagram"></a>
+    </div>
+    <!-- Import TensorFlow.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js" type="text/javascript"></script>
+    <!-- Load the coco-ssd model to use to recognize things in images -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    
+    <!-- Import the page's JavaScript to do some stuff -->
+    <script src="script.js" defer></script>
+  </body>
+</html>
