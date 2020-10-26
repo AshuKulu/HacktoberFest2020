@@ -10,12 +10,12 @@ t.goto(0, 200)
 t.pendown()
 a = 0
 b = 0
-while True :
+while True:
     t.forward(a)
     t.right(b)
     a += 3
     b += 1
-    if b == 200 :
+    if b == 200:
         break
     t.hideturtle()
 

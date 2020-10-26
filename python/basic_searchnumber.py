@@ -1,20 +1,17 @@
-l=[]
-print("Total number elements you want to add:")
-t=int(input())
+# Initialization of new list, can also be done by l = list()
+list1 = []
+t = int(input("Total number elements you want to add:"))
 print("input elements:")
 
-for j in range(0,t):
-    p=int(input())
-    l.append(p) 
-print("Unsorted list is:")        
-print(l)  
-print("Sorted list is:")
-l.sort()
-print(l)
-print("Enter the number you want to find index of :")
-n=int(input())
-if n in l:
-  print("number is at index:")
-  print(l.index(n))
+for j in range(0, t):
+    p = int(input())
+    list1.append(p)
+print("Unsorted list is:", list1, sep="")
+# Permanently sorting the list
+list1.sort()
+print("Sorted list is:", list1, sep="")
+n = int(input("Enter the number you want to find index of :"))
+if n in list1:
+    print("number is at index:", l.index(n), sep="")
 else:
-    print("element does not exits")
+    print("element does not exist")
