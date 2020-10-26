@@ -1,0 +1,4 @@
+This is another example of regular expresion
+where pattern is used 
+to find phone number and email id 
+from the input text
