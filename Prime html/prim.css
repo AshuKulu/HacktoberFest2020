@@ -1,0 +1,56 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background-color: lightseagreen;
+}
+.title
+{
+    background-color: black;
+    text-align: center;
+    height: 60px;
+    margin-bottom: 0;
+    color: whitesmoke;
+}
+#text-user
+{
+    text-align: center;
+    margin-bottom: 15px;
+}
+#text-section
+{
+    text-align: center;
+    background-color: lightsalmon;
+    padding: 10px;
+}
+.cont
+{
+    margin: 100px auto;
+    width: 500px;
+}
+#n-value
+{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+}
+#output-sec1
+{
+    text-align: center;
+    margin-top: 20px;
+}
+#output-section1
+{
+    font-size: 20px;
+}
+button
+{
+    width: 150px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+}
