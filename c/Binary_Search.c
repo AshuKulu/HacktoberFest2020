@@ -65,7 +65,7 @@ void binarySearch(int searchValue, int a[], int n)
     first = 0;      // First initalized to the first position of the array
     last = n-1;     // Last initialized to the last position of the array
 
-    middle = first + last / 2;      // Middle position of the array is calculated using this formula
+        middle = first + ((last - first) / 2);      // Middle position of the array is calculated using this formula
 
     printf("Starting to search the Data element --> %4d\n", searchValue);   
     // Search until the last element is greater then equal to the first element
@@ -85,7 +85,7 @@ void binarySearch(int searchValue, int a[], int n)
         else
             last = middle - 1;
         
-        middle = first + last / 2; 
+        middle = first + ((last - first) / 2); 
     }
 
     // If first becomes greater then the last position in the array then the element is not at all found in the array
