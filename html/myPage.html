@@ -2,14 +2,15 @@
 <html>  
 <head>
 <style>
-  .red-text {
+    .red-text {
     color: red;
+    text-decoration: underline;
   }
 
   p{
     font-size: 25px;
     color: green;
-    font-family: monospace;
+    font-family: cursive;
     background-color: lightblue;
   }
 
@@ -17,13 +18,14 @@
   text-align: center;
   color: red;
   background-color: white;
+  text-decoration: underline;
 }
 *{
 background-color: lightgreen;
 }
 </style>
 
-<h1 style="color: blue;text-align:center;">My Page</h1>  
+<h1 style="color: blue;text-align:center;text-decoration: underline;">My Page</h1>  
 <p id="para1">Hello World!</p>
 <h2 class="red-text">Success in Life</h2>
 </head>
@@ -46,11 +48,11 @@ background-color: lightgreen;
 
   <form action="/submit">
      <h2 style="color: red;">Do you think you are</h2>
-    <label><input type="checkbox" name="personality" > Strong</label>
-    <label><input type="checkbox" name="personality"> Lazy</label>
-    <label><input type="checkbox" name="personality"> Energetic</label><br><br>
+    <label style="cursor: pointer;"><input type="checkbox" name="personality" > Strong</label>
+    <label style="cursor: pointer;"><input type="checkbox" name="personality"> Lazy</label>
+    <label style="cursor: pointer;"><input type="checkbox" name="personality"> Energetic</label><br><br>
     <input type="text" placeholder="Add Comments" required><br><br>
-    <button type="submit">Submit</button>
+    <button type="submit" style="cursor: pointer;">Submit</button>
   </form>
 </main>
 </html>
