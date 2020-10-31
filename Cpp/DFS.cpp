@@ -2,13 +2,12 @@
 #include <list> 
 
 using namespace std; 
-
 // This class represents a directed graph using 
 // adjacency list representation 
 class Graph 
 { 
     int V;    // No. of vertices 
-
+    
     // Pointer to an array containing adjacency 
     // lists 
     list<int> *adj;    
@@ -32,14 +31,12 @@ void Graph::addEdge(int v, int w)
 { 
     adj[v].push_back(w); // Add w to v’s list. 
 } 
-
 void Graph::BFS(int s) 
 { 
     // Mark all the vertices as not visited 
     bool *visited = new bool[V]; 
     for(int i = 0; i < V; i++) 
         visited[i] = false; 
-
     // Create a queue for BFS 
     list<int> queue; 
 
@@ -71,7 +68,6 @@ void Graph::BFS(int s)
         } 
     } 
 } 
-
 // Driver program to test methods of graph class 
 int main() 
 { 
@@ -90,7 +86,6 @@ int main()
 
     return 0; 
 } 
-
 //Output:
 //Following is Breadth First Traversal (starting from vertex 2)
 //2 0 3 1 
