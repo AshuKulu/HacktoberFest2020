@@ -1,0 +1,53 @@
+import java.util.*;
+class Anagram
+{
+    public static void main()
+    {
+        int a1,a2,i,j,as1,as2,s1=0,s2=0;
+        String str1,str2,str3="",str4="";
+        char chr1,chr2;
+        Scanner in =new Scanner(System.in);
+        //taking input from the user
+        System.out.println("ENTER FIRST WORD");
+        str1=in.next();
+        str1=str1.toUpperCase(); // converting the wrd in upper case
+        System.out.println("ENTER SECOND WORD");
+        str2=in.next();
+        str2=str2.toUpperCase(); // converting the wrd in upper case
+        a1=str1.length();  //calculating the length of str1
+        a2=str2.length();  //calculating the length of str2
+        if(a1==a2) //checking if both the length are same or not 
+        {
+            for(i=65;i<=90;i++)
+            {
+               for(j=0;j<a2;j++)
+               {
+                   chr1=str1.charAt(j);
+                   chr2=str2.charAt(j);
+                   as1=(int)chr1;
+                   as2=(int)chr2;
+                   if(as1==i)
+                   {
+                       str3=str3+chr1;
+                       s1=s1+as1;
+                    }
+                   if(as2==i)
+                   {
+                       str4=str4+chr2;
+                       s2=s2+as2;
+                    }
+                }
+            }
+            if(str3.equals(str4)&&(s1==s2))
+            System.out.println(str1+" "+"and"+" "+str2+" "+"are Anagram words");
+            else
+            System.out.println(str1+" "+"and"+" "+str2+" "+"are not Anagram words");
+        }
+        else 
+        System.out.println("Wrong input!!! Re-enter words Anagram");
+    }
+}
+
+            
+            
+                        
