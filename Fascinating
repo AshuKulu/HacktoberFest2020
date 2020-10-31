@@ -1,0 +1,45 @@
+import java.util.*;
+class fasc
+{
+    public static void main()
+    {
+        Scanner in=new Scanner(System.in);
+        int n1,n2,n3,i,c;
+        String N,N1,N2,N3;
+        char ch;
+        boolean b=true;
+        System.out.println("Enter a 3 or more digit no.");
+        n1=in.nextInt();
+        n2=n1*2;
+        n3=n1*3;
+        N1=Integer.toString(n1);
+        N2=Integer.toString(n2);
+        N3=Integer.toString(n3);
+        N=N1+N2+N3;
+        System.out.println(N1+"x1="+N1);
+        System.out.println(N1+"x2="+N2);
+        System.out.println(N1+"x3="+N3);
+        System.out.println("Concatening Result:"+N);
+        for(ch='1';ch<='9';ch++)
+        {
+            c=0;
+            for(i=0;i<N.length();i++)
+            {
+                if(N.charAt(i)==ch)
+                {
+                    c++;
+                }
+            }
+            if(c!=1)
+            {
+                System.out.println("Hence "+N1+" is not a Fascinating No.");
+                b=false;
+                break;
+            }
+        }
+        if(b==true)
+            {
+                System.out.println("Hence "+N1+" is a Fascinating No.");
+            }
+    }
+}
