@@ -1,0 +1,174 @@
+body {
+  background-color: rgb(120,120,120);
+  font-family: 'Francois One', sans-serif;
+  color: rgb(51,51,51);
+  }
+  h1{
+    color:darkkhaki;
+  }
+  #header {
+    background: linear-gradient(black,grey);
+    position: fixed;
+    top: 0;
+    min-height: 70px;
+    width: 100%;
+    padding: 20px 23px;
+    display: flex;
+    font-family: sans-serif;
+    align-items: center;
+    z-index: 2;
+    @media (max-width: 568px) {
+        flex-wrap: wrap;
+    }
+  }
+
+  #header-img {
+    padding: 11px;
+    width:100px;
+    height: 100px;
+    display: flex;
+    @media (max-width: 568px) {
+      position: relative;
+    }
+  }
+
+  #nav-bar {
+    padding: 3px;
+    margin-left: 500px;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 568px) {
+      margin-top: 1px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+   .nav-link {
+    margin: 23px;
+    padding: 11px;
+    font-size: 19px;
+    color:khaki;
+    @media (max-width: 568px) {
+      flex-direction: column;
+    }
+  }
+
+  #bk-img{
+    height: 90%;
+    width: 50%;
+    display: grid;
+     width: 50%;
+    @media (max-width: 568px) {
+      flex-wrap: wrap;
+  }
+  }
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #email {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 19px;
+    border: 2px solid black;
+    border-radius: 9px;
+    padding:10px;
+  }
+   #submit {
+    margin: 13px;
+    padding: 5px;
+    font-size: 19px;
+    background-color:plum;
+    border: 2px solid rgb(51,51,51);
+    border-radius: 9px;
+  }
+  #how-it-works {
+    display: flex;
+    margin-top: 71px;
+    justify-content: center;
+  }
+  #about{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+  }
+  p {
+    text-align: center;
+    font-size: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin:13px;
+  }
+  #products{
+    text-align: center;
+   color: black;
+   font-weight: bold;
+ }
+  div.gallery {
+    border: 1px solid #ccc;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+   div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  .responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+  }
+   @media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+   @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+  }
+   .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  button {
+    margin: 11px;
+    padding: 7px;
+    background-color:darkkhaki;
+    border: 3px solid rgb(51,51,51);
+    border-radius: 9px;
+    @media (max-width: 568px) {
+      flex-direction: column;
+    }
+  }
+  #footer{
+  background:linear-gradient(black,grey);
+  color: khaki;
+  margin: auto;
+  padding-top: 1em;
+  padding-bottom: 3em;
+  text-align: center;
+}
+  
