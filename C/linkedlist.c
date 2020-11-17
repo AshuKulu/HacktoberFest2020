@@ -1,126 +1,249 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-struct node{
-    int data;
-    struct node *link;
+struct node {
+   int data;
+   int key;
+   struct node *next;
 };
 
-void addNodeAtBeg(struct node **head, int newData){
-    //Create a new node 
-    struct node *newNode = (struct node *)malloc(sizeof(struct node));
-    //insert data in new node
-    newNode->data = newData;
-    //it's a new node i.e. it is going to be last node, add NULL to it's link
-    newNode->link = NULL;
-    //if linked list is empty
-    if(*head == NULL){
-        *head = newNode;
-        return;
-    } 
-    else{
-        newNode->link = *head;
-        *head = newNode;
-        return;
-    }
+struct node *head = NULL;
+struct node *current = NULL;
+
+//display the list
+void printList() {
+   struct node *ptr = head;
+   printf("\n[ ");
+	
+   //start from the beginning
+   while(ptr != NULL) {
+      printf("(%d,%d) ",ptr->key,ptr->data);
+      ptr = ptr->next;
+   }
+	
+   printf(" ]");
 }
 
-void addNodeAtEnd(struct node **head, int newData){
-    struct node *newNode = (struct node *)malloc(sizeof(struct node));
-
-    newNode->data = newData;
-    newNode->link = NULL;
-
-    struct node *last = *head;
-
-    if(*head == NULL)
-        *head = newNode;
-    else{
-        while(last->link != NULL)
-            last = last->link;
-        last->link = newNode;
-    }
+//insert link at the first location
+void insertFirst(int key, int data) {
+   //create a link
+   struct node *link = (struct node*) malloc(sizeof(struct node));
+	
+   link->key = key;
+   link->data = data;
+	
+   //point it to old first node
+   link->next = head;
+	
+   //point first to new first node
+   head = link;
 }
 
-void insertNodeAfter(struct node **head, int item, int newData){
-    struct node *newNode = (struct node *)malloc(sizeof(struct node));
+//delete first item
+struct node* deleteFirst() {
 
-    newNode->data = newData;
-
-    struct node *find = *head;
-
-    while(find->data != item)
-        find = find->link;
-    newNode->link = find->link;
-    find->link = newNode;
+   //save reference to first link
+   struct node *tempLink = head;
+	
+   //mark next to first link as first 
+   head = head->next;
+	
+   //return the deleted link
+   return tempLink;
 }
 
-void deleteParticularNode(struct node **head, int item){
-    struct node *find = *head;
-    if(find->data == item){
-        *head = find->link;
-        free(find);
-    }
-    else{
-        while(find->link->data != item)
-            find = find->link;
-        find->link = find->link->link;
-        free(find->link->link);
-    }
+//is list empty
+bool isEmpty() {
+   return head == NULL;
 }
 
-void reverse(struct node **head){
-    struct node *prev = *head;
-    struct node *next = *head;
-    struct node *current = *head;
-
-    next = next->link->link;
-    current = current->link;
-    prev->link = NULL;
-    
-    while(1){
-        current->link = prev;
-        prev = current;
-        current = next;
-        if(current == NULL)
-            break;
-        next = next->link; 
-    }
-    *head = prev;
+int length() {
+   int length = 0;
+   struct node *current;
+	
+   for(current = head; current != NULL; current = current->next) {
+      length++;
+   }
+	
+   return length;
 }
 
-void printList(struct node *head){
-    while(head != NULL){
-        printf("%d ", head->data);
-        head = head->link;
-    }
+//find a link with given key
+struct node* find(int key) {
+
+   //start from the first link
+   struct node* current = head;
+
+   //if list is empty
+   if(head == NULL) {
+      return NULL;
+   }
+
+   //navigate through list
+   while(current->key != key) {
+	
+      //if it is last node
+      if(current->next == NULL) {
+         return NULL;
+      } else {
+         //go to next link
+         current = current->next;
+      }
+   }      
+	
+   //if data found, return the current Link
+   return current;
 }
 
-int main(){
-    
-    struct node *head = NULL;
+//delete a link with given key
+struct node* delete(int key) {
 
-    addNodeAtBeg(&head, 6);
+   //start from the first link
+   struct node* current = head;
+   struct node* previous = NULL;
+	
+   //if list is empty
+   if(head == NULL) {
+      return NULL;
+   }
 
-    addNodeAtBeg(&head, 5);
+   //navigate through list
+   while(current->key != key) {
 
-    addNodeAtEnd(&head, 7);
+      //if it is last node
+      if(current->next == NULL) {
+         return NULL;
+      } else {
+         //store reference to current link
+         previous = current;
+         //move to next link
+         current = current->next;
+      }
+   }
 
-    insertNodeAfter(&head, 7, 79);
+   //found a match, update the link
+   if(current == head) {
+      //change first to point to next link
+      head = head->next;
+   } else {
+      //bypass the current link
+      previous->next = current->next;
+   }    
+	
+   return current;
+}
 
-    deleteParticularNode(&head, 7);
+void sort() {
 
-    addNodeAtBeg(&head, 2);
+   int i, j, k, tempKey, tempData;
+   struct node *current;
+   struct node *next;
+	
+   int size = length();
+   k = size ;
+	
+   for ( i = 0 ; i < size - 1 ; i++, k-- ) {
+      current = head;
+      next = head->next;
+		
+      for ( j = 1 ; j < k ; j++ ) {   
 
-    addNodeAtBeg(&head, 3);
+         if ( current->data > next->data ) {
+            tempData = current->data;
+            current->data = next->data;
+            next->data = tempData;
 
-    addNodeAtBeg(&head, 4);
-    
-    printList(head);
+            tempKey = current->key;
+            current->key = next->key;
+            next->key = tempKey;
+         }
+			
+         current = current->next;
+         next = next->next;
+      }
+   }   
+}
 
-    reverse(&head);
-    printf("\n");
-    printList(head);
+void reverse(struct node** head_ref) {
+   struct node* prev   = NULL;
+   struct node* current = *head_ref;
+   struct node* next;
+	
+   while (current != NULL) {
+      next  = current->next;
+      current->next = prev;   
+      prev = current;
+      current = next;
+   }
+	
+   *head_ref = prev;
+}
 
-    return 0;
+void main() {
+   insertFirst(1,10);
+   insertFirst(2,20);
+   insertFirst(3,30);
+   insertFirst(4,1);
+   insertFirst(5,40);
+   insertFirst(6,56); 
+
+   printf("Original List: "); 
+	
+   //print list
+   printList();
+
+   while(!isEmpty()) {            
+      struct node *temp = deleteFirst();
+      printf("\nDeleted value:");
+      printf("(%d,%d) ",temp->key,temp->data);
+   }  
+	
+   printf("\nList after deleting all items: ");
+   printList();
+   insertFirst(1,10);
+   insertFirst(2,20);
+   insertFirst(3,30);
+   insertFirst(4,1);
+   insertFirst(5,40);
+   insertFirst(6,56);
+   
+   printf("\nRestored List: ");
+   printList();
+   printf("\n");  
+
+   struct node *foundLink = find(4);
+	
+   if(foundLink != NULL) {
+      printf("Element found: ");
+      printf("(%d,%d) ",foundLink->key,foundLink->data);
+      printf("\n");  
+   } else {
+      printf("Element not found.");
+   }
+
+   delete(4);
+   printf("List after deleting an item: ");
+   printList();
+   printf("\n");
+   foundLink = find(4);
+	
+   if(foundLink != NULL) {
+      printf("Element found: ");
+      printf("(%d,%d) ",foundLink->key,foundLink->data);
+      printf("\n");
+   } else {
+      printf("Element not found.");
+   }
+	
+   printf("\n");
+   sort();
+	
+   printf("List after sorting the data: ");
+   printList();
+	
+   reverse(&head);
+   printf("\nList after reversing the data: ");
+   printList();
 }
