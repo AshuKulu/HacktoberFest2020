@@ -1,15 +1,23 @@
-def bubbleSort(arr):
-    for passnum in range(len(arr)-1,0,-1):
-        for i in range(passnum):
-            if arr[i]>arr[i+1]:
-                temp = arr[i]
-                arr[i] = arr[i+1]
-                arr[i+1] = temp
+num_arr = []
+arr_length = raw_input("How many numbers will be there in the array:")
 
-n=int(input("Give range of list of numbers"))
-arr=[]
-for i in range(n):
-    arr.append(input("input a number"))
+print("Enter the numbers...")
+for i in range(int(arr_length)):
+  num = raw_input("num"+str(i+1)+":")
+  num_arr.append(int(num))
+  
+print("Your array is: ", num_arr)
 
-bubbleSort(arr)
-print(arr)
+flag = 0
+for i in range(int(arr_length)):
+  for j in range(int(arr_length)-i-1):
+    if num_arr[j] > num_arr[j+1]:
+      # swap the numbers
+      num_arr[j], num_arr[j+1] = num_arr[j+1], num_arr[j]
+      flag = 1
+  if flag==0:
+    # means nothing was swapped
+    break
+
+print("Sorted Array: ", num_arr)
+      
