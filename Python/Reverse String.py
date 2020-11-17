@@ -1,5 +1,2 @@
-print("enter a text you want to reverse")
-txt = str(input())
-a=txt[::-1]
-print("Reversed text is:")
-print(a)
+txt = input("Enter a text you want to reverse:")
+print("Reversed text is:", txt[::-1])
