@@ -1,0 +1,66 @@
+#Importing required libraries
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+#Importing the dataset
+
+dataset= pd.read_csv("student_scores.csv")
+
+#First 5 rows of the dataset
+
+dataset.head()
+
+#Information about the dataset
+
+dataset.info()
+
+#Visualizing the dataset
+
+sns.scatterplot(x="Scores", y="Hours", data= dataset )
+plt.show()
+
+#Storing the independent feature and the dependent feature in X and y
+
+X= dataset.iloc[:,0].values
+y= dataset.iloc[:,1].values
+
+#Splitting the dataset into training set and test set
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
+
+#Implementing LassoLars linear model
+
+from sklearn import linear_model
+regressor = linear_model.LassoLars(alpha=0.01)
+X_train= X_train.reshape(-1,1)
+regressor.fit(X_train, y_train, None)
+
+#Predicting the results
+
+X_test= X_test.reshape(-1,1)
+y_pred= regressor.predict(X_test)
+
+#Accuracy of the model
+
+regressor.score(X_train, y_train, sample_weight=None)
+
+print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+
+#Predicted score that a student may achieve after studying for 9.25 hours
+
+regressor.predict([[9.25]])
+
+#Visualizing the results
+
+X_grid = np.arange(min(X_train), max(X_train), 0.1)
+X_grid = X_grid.reshape((len(X_grid), 1))
+plt.scatter(X_train, y_train, color = 'red')
+plt.plot(X_grid, regressor.predict(X_grid), color = 'blue')
+plt.title('Scores vs Hours')
+plt.xlabel('Hours of Study')
+plt.ylabel('Scores')
+plt.show()
