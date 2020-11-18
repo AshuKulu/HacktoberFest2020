@@ -1,0 +1,44 @@
+
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+void selectionSort (int Array[index], int S);
+
+int main()
+{
+
+{
+ofstream myfile ("salary.text");
+
+const int S = 5;
+int Array[index] = {75000, 45000, 65000, 100000, 50000};
+myfile.close();
+
+selectionSort (Array[index], S);
+
+}
+
+
+
+void selectionSort (int Array[index], int S)
+{
+ifstream myfile ("salary.text");
+{
+sort (Array, Array + S );
+
+cout << "Sorted Array" << endl;
+
+for (size_t i=0; i != S; ++i)
+cout<<Array<< "\n";
+}
+
+myfile.close();
+}
+
+return 0;
+
+}
+
