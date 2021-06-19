@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .comic {
+            background-color: white;
+            color: tomato;
+            font-family: "Quicksand", sans-serif;
+            text-align: center;
+        }
+        .h1 {
+            font-size: 40px;
+        }
+        p {
+            font-size: 30px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="comic">
+    <div>
+        <h1>World Map</h1>
+        <p>Click on the continents to know more information about that continent.</p>
+    </div>
+    <div>
+        <img src="world.png" alt="World" usemap="#worldmap" width="1100" height="578">
+        <!--Used map tag to draw boundaries-->
+        <map name="worldmap">
+            <area shape="poly" coords="637, 159, 696, 160, 703, 183, 721, 179, 703, 124m 739, 122, 726, 44, 1052, 55, 960, 223, 1015, 335, 
+            988, 373, 909, 340, 875, 242, 844, 247, 818, 296, 789, 233, 695, 272" alt="Asia" href="https://en.wikipedia.org/wiki/Asia">
+            <area shape="poly" coords="492, 310, 469, 250, 533, 189, 633, 209, 684, 296, 711, 295, 670, 366, 710, 398, 697, 445, 652, 425, 
+            600, 480, 553, 310" alt="Africa" href="https://en.wikipedia.org/wiki/Africa">
+            <area shape="poly" coords="500, 174, 471, 65, 571, 5, 676, 5, 708, 52, 708, 108, 689, 114, 685, 144, 607, 160" alt="Europe" href="https://en.wikipedia.org/wiki/Europe">
+            <area shape="poly" coords="1036, 349, 1094, 381, 1089, 448, 1039, 518, 1018, 478, 951, 484, 957, 441, 1015, 402" alt="Australia" href="https://en.wikipedia.org/wiki/Australia">
+            <area shape="poly" coords="40, 82, 97, 45, 156, 54, 335, 5, 503, 5, 397, 75, 222, 203, 218, 297, 133, 254, 95, 170, 105, 78" alt="North America", href="https://en.wikipedia.org/wiki/North_America">
+            <area shape="poly" coords="255, 296, 373, 370, 303, 562, 270, 508, 260, 417, 220, 364, 232, 304", alt="South America", href="https://en.wikipedia.org/wiki/South_America">
+        </map>
+    </div>
+</body>
+</html>

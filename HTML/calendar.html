@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        .head {
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            color: tomato;
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: bolder;
+        }
+        h3 {
+            font-size: 30px;
+            font-style: italic;
+            color: indigo;
+        }
+        form {
+            margin: 20px auto;
+            width: 200px;
+        }
+        select {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #444;
+            line-height: 1.3;
+            padding: 10px;
+            width: 100%;
+            margin: 10px;
+            border: 2px solid indigo;
+            border-radius: 25px;
+            background-color: #fff;
+        }
+        select:hover {
+            border-color: tomato;
+        }
+        select:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+            box-shadow: 0 0 0 3px -moz-mac-focusring;
+            color: #222;
+            outline: none;
+        }
+        select option {
+            font-weight: bold;
+        }
+        .cal {
+            margin: auto;
+            align-items: center;
+            font-size: 25px;
+        }
+        table {
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        td, th {
+            border: 1px solid black;
+            text-align: center;
+            background-color: gold;
+            padding: 10px 30px;
+        }
+        .sun {
+            color: tomato;
+            text-align: center;
+        }
+        .holi {
+            color: indigo;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: #f8efd4;">
+    <div class="head">
+        <h1>Calender</h1>
+        <h3 id="monthAndYear"></h3>
+    </div>
+    <form>
+        <select name="month" id="month" onchange="jump()">
+            <option value=0>Jan</option>
+            <option value=1>Feb</option>
+            <option value=2>Mar</option>
+            <option value=3>Apr</option>
+            <option value=4>May</option>
+            <option value=5>Jun</option>
+            <option value=6>Jul</option>
+            <option value=7>Aug</option>
+            <option value=8>Sep</option>
+            <option value=9>Oct</option>
+            <option value=10>Nov</option>
+            <option value=11>Dec</option>
+        </select>
+        <select name="year" id="year" onchange="jump()">
+            <option value=2019>2019</option>
+            <option value=2020>2020</option>
+        </select>
+    </form>
+    <table id="calendar" class="cal">
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+        <tbody id="calendar-body">
+        </tbody>
+    </table>
+    <div>
+        <h3 class="sun">Sundays</h3>
+        <h3 class="holi">Holidays</h3>
+    </div>
+    <script>
+        let today = new Date();
+        let currentMonth = today.getMonth();
+        let currentYear = today.getFullYear();
+        let selectYear = document.getElementById("year");
+        let selectMonth = document.getElementById("month");
+
+        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        var holidays = ["1/1/2020", "2/1/2020", "12/1/2020", "15/1/2020", "26/1/2020", "21/2/2020", "6/3/2020",
+            "10/3/2020", "2/4/2020", "6/4/2020", "14/4/2020", "3/8/2020", "15/8/2020", "22/8/2020", "2/10/2020",
+            "26/10/2020", "14/11/2020", "25/12/2020", "1/1/2019", "26/1/2019", "20/3/2019", "21/9/2019", "6/4/2019",
+            "11/4/2019", "14/4/2019", "19/4/2019", "15/8/2019", "24/8/2019", "2/9/2019", "10/9/2019", "2/10/2019", "8/10/2019",
+            "27/10/2019", "10/11/2019", "12/11/2019", "25/12/2019"];
+
+        let monthAndYear = document.getElementById("monthAndYear");
+        showCalendar(currentMonth, currentYear);
+
+        function jump() {
+            currentYear = parseInt(selectYear.value);
+            currentMonth = parseInt(selectMonth.value);
+            showCalendar(currentMonth, currentYear);
+        }
+
+        function showCalendar(month, year) {
+
+            let firstDay = (new Date(year, month)).getDay();
+            let daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+            let tbl = document.getElementById("calendar-body"); // body of the calendar
+
+            // clearing all previous cells
+            tbl.innerHTML = "";
+
+            // filing data about month and in the page via DOM.
+            monthAndYear.innerHTML = months[month] + " " + year;
+            selectYear.value = year;
+            selectMonth.value = month;
+
+            // creating all cells
+            let date = 1;
+            for (let i = 0; i < 6; i++) {
+                // creates a table row
+                let row = document.createElement("tr");
+
+                //creating individual cells, filing them up with data.
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        let cell = document.createElement("td");
+                        let cellText = document.createTextNode("");
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                    }
+                    else if (date > daysInMonth) {
+                        break;
+                    }
+                    else {
+                        let cell = document.createElement("td");
+                        let cellText = document.createTextNode(date);
+                        console.log(date, month, year);
+
+                        // Marking holidays as blue
+                        var x = date + "/" + parseInt(month + 1) + "/" + year;
+                        for (var k = 0; k < holidays.length; k++) {
+                            if (x == holidays[k]) {
+                                cell.style.backgroundColor = "indigo";
+                                cell.style.color = "white";
+                                break;
+                            }
+                        }
+
+                        if (j == 0) {
+                            cell.style.backgroundColor = "tomato";
+                        }
+
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                        date++;
+                    }
+
+                }
+                // appending each row into calendar body.
+                tbl.appendChild(row);
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps</title>
+    <!--Used google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .comic {
+            background-color: #011D29;
+            color: white;
+            font-family: "Quicksand", sans-serif;
+            text-align: center;
+        }
+        .h1 {
+            font-size: 40px;
+        }
+        p {
+            font-size: 30px;
+            font-style: italic;
+        }
+        .grid-container {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: auto auto;
+            padding: 50px;
+            column-gap: 100px;
+            row-gap: 20px;
+            margin: 50px;
+        }
+        .grid-item {
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+        }
+        /*Enlarging the map when hovered to create a transition effect*/
+        .grid-item:hover {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body class="comic">
+    <div class="header">
+        <h1>MAPS🌎</h1>
+        <p>Click on the maps to have a bigger view</p>
+    </div>
+    <div class="grid-container">
+        <div class="grid-item">
+            <a href="india.html"><img src="india.png" width="200" height="275"></a>
+        </div>
+        <div class="grid-item">
+            <a href="world.html"><img src="world.jpg" width="350" , height="275"></a>
+        </div>
+        <div class="grid-item">India Map</div>
+        <div class="grid-item">World Map</div>
+    </div>
+</body>
+</html>

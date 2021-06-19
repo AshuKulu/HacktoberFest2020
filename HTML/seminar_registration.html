@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seminar</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: x-large;
+        }
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .centered h1 {
+            font-size: 40px;
+        }
+        fieldset {
+            border: 2px dotted #002039;
+            border-radius: 4px;
+            max-width: 1000px;
+            box-shadow: 1px 1px 10px #002039;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        legend {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            width: 35%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            color: white;
+            background-color: #002039;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 12px 12px;
+            border: 2px solid #002039;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .btns {
+            margin: auto;
+            text-align: center;
+        }
+        input[type="submit"],
+        button {
+            background-color: #002039;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 2px;
+            border-color: 2px solid #213f57;
+        }
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+        .col-75 {
+            float: left;
+            width: 70%;
+            margin-top: 6px;
+        }
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            padding-left: 20px;
+        }
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        td{
+            padding: 10px;
+        }
+        table{
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="head.jpeg" alt="Header" style="width:100%;">
+        <div class="centered">
+            <h1>International Seminar</h1>
+            <p>
+                We welcome all the students, faculty members, professionals, company / firm
+                representatives from different countries.
+            </p>
+            <button onclick="registerForm()">Register</button>
+        </div>
+    </div>
+    <div id="register" style="display: none;">
+        <form method="POST" id="seminarRegis" action="">
+            <fieldset name="personalInfo">
+                <legend>Personal Info</legend>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">First Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Your Firstname" id="fname" name="fname" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lname">Last Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Your Lastname" id="lname" name="lname" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label>Gender</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label><br>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="email" placeholder="abc@gmail.com" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="phone">Phone number:</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="000-000-0000" id="phone" name="phone" maxlength="10"
+                            pattern="[789][0-9]{9}" required>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Address</legend>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="hno">House number</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Your Appartment name and House name" id="hno" name="hno"
+                            required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="street">Street</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Street name" id="street" name="street" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="city">city</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="City" id="city" name="city" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="state">State</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="State" id="state" name="state" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="pincode">Pincode</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Pincode" id="pincode" name="pincode" pattern="[0-9]{6}"
+                            maxlength="6" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="country">Country</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Country" id="country" name="country" required>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>You are a?</legend>
+                <input type="radio" id="student" name="youare" value="student" onchange="studentInfo()" required>
+                <label for="student">Student</label>
+                <input type="radio" id="faculty" name="youare" value="faculty" onchange="facultyInfo()">
+                <label for="faculty">Faculty</label>
+                <input type="radio" id="prof" name="youare" value="professional" onchange="ProfessInfo()">
+                <label for="prof">Professional</label>
+                <input type="radio" id="company" name="youare" value="company" onchange="CompanyInfo()">
+                <label for="company">Company/Firm</label>
+            </fieldset>
+            <fieldset id="stud" style="display: none;">
+                <legend>Student</legend>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="university">University/Institute</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="University or Institute name" id="university" name="university">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="department">Department</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Department" id="department" name="department">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="yearOfGrad">Graduation Year</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Department" id="yearOfGrad" name="yearOfGrad"
+                            pattern="[12][0-9]{3}" maxlength="4">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id="fact" style="display: none;">
+                <legend>Faculty</legend>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="univ">University/Institute</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="University or Institute name" id="univ" name="univ">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="dept">Department</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Department" id="dept" name="dept">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="positionFaculty">Position</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Position" id="positionFaculty" name="positionFaculty">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id="professional" style="display: none;">
+                <legend>Professional</legend>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="profession">Profession</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Role" id="profession" name="profession">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="typeofemp">Type of Employement</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Private / Self-employed / Govt." id="typeofemp"
+                            name="typeofemp">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="company">Company</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Company / Organization name" id="company" name="company">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id="compField" style="display: none;">
+                <legend>Company / Firm</legend>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="comp">Company/Firm</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Company / Firm name" id="comp" name="comp">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="positionComp">Position</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" placeholder="Role" id="positionComp" name="positionComp">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id="accommodation">
+                <legend>Accommodation</legend>
+                <label for="requireAccom">Do you Require Accommodation?</label><br>
+                <input type="radio" id="yes" name="accomValue" value="yes" onchange="Accomyes()" required>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="accomValue" value="no" onchange="Accomno()">
+                <label for="no">No</label>
+                <div id="accomForm" style="display: none;">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="hoteltype">Hotel</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="hoteltype" id="hoteltype">
+                                <option value="3 star">3 star - $20 (INR 1,465.9)</option>
+                                <option value="4 star">4 star - $35 (INR 2,565.33)</option>
+                                <option value="5 star">5 star - $60 (INR 4,397.7)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Free Services</p>
+                        <ul>
+                            <li>24 hours free wifi</li>
+                            <li>Luggage Forwarding</li>
+                            <li>Room Services</li>
+                            <li>Television is available in all rooms</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <label for="services">Extra Services</label><br>
+                        <input type="checkbox" id="travel" name="travel" value="travel">
+                        <label for="travel">Pick-up and Drop-off Service ($10 / Rs.732.95)</label><br>
+                        <input type="checkbox" id="breakfast" name="breakfast" value="breakfast">
+                        <label for="breakfast">Unlimited brunch Buffet ($4 / Rs.293.18)</label><br>
+                        <input type="checkbox" id="lunch" name="lunch" value="lunch">
+                        <label for="lunch">Lunch Buffet ($6 / Rs.439.77)</label><br>
+                        <input type="checkbox" id="dinner" name="dinner" value="dinner">
+                        <label for="dinner">Dinner Buffet ($6 / Rs.439.77)</label><br>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <p><strong>Note:</strong><i>Entry fee $30 / Rs.2198.85</i></p>
+                <legend>Payment Info</legend>
+                <div>
+                    <label>Pay through :</label><br>
+                    <input type="radio" id="creditcard" name="payment" value="creditcard" required>
+                    <label for="creditcard">Credit Card</label>
+                    <input type="radio" id="debitcard" name="payment" value="debitcard">
+                    <label for="debitcard">Debit Card</label>
+                    <input type="radio" id="dd" name="payment" value="dd">
+                    <label for="dd">Demand Draft</label>
+                </div>
+            </fieldset>
+            <div class="btns">
+                <input type="submit" value="Pay">
+                <button onclick="openPayment()">Bill Summary</button>
+            </div>
+        </form>
+    </div>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Bill Summary</h2>
+            <p id="billInfo"></p>
+        </div>
+    </div>
+    <script>
+        function registerForm() {
+            var x = document.getElementById("register");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        function studentInfo() {
+            document.getElementById("stud").style.display = "block";
+            document.getElementById("fact").style.display = "none";
+            document.getElementById("professional").style.display = "none";
+            document.getElementById("compField").style.display = "none";
+        }
+        function facultyInfo() {
+            document.getElementById("stud").style.display = "none";
+            document.getElementById("fact").style.display = "block";
+            document.getElementById("professional").style.display = "none";
+            document.getElementById("compField").style.display = "none";
+        }
+        function ProfessInfo() {
+            document.getElementById("stud").style.display = "none";
+            document.getElementById("fact").style.display = "none";
+            document.getElementById("professional").style.display = "block";
+            document.getElementById("compField").style.display = "none";
+        }
+        function CompanyInfo() {
+            document.getElementById("stud").style.display = "none";
+            document.getElementById("fact").style.display = "none";
+            document.getElementById("professional").style.display = "none";
+            document.getElementById("compField").style.display = "block";
+        }
+        function Accomyes() {
+            document.getElementById("accomForm").style.display = "block";
+        }
+        function Accomno() {
+            document.getElementById("accomForm").style.display = "none";
+        }
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        // When the user clicks the button, open the modal 
+        function openPayment() {
+            modal.style.display = "block";
+            var total = 30;
+            var s = "<table><tr><td>Seminar Entry fee</td><td>$30</td></tr>";
+            if (document.getElementById('yes').checked) {
+                if (document.getElementById('hoteltype').value == "3 star") {
+                    s = s + "<tr><td>Hotel type - 3 star</td><td>$20</td></tr>";
+                    total += 20;
+                }
+                else if (document.getElementById('hoteltype').value == "4 star") {
+                    s = s + "<tr><td>Hotel type - 4 star</td><td>$35</td></tr>";
+                    total += 35;
+                }
+                else {
+                    s = s + "<tr><td>Hotel type - 5 star</td><td>$60</td></tr>";
+                    total += 60;
+                }
+                if(document.getElementById('travel').checked){
+                    s = s + "<tr><td>Pick-up and drop-service(extra)</td><td>$10</td></tr>";
+                    total += 10;
+                }
+                if(document.getElementById('breakfast').checked){
+                    s = s + "<tr><td>Breakfast Buffet</td><td>$4</td></tr>";
+                    total += 4;
+                }
+                if(document.getElementById('lunch').checked){
+                    s = s + "<tr><td>Lunch Buffet</td><td>$6</td></tr>";
+                    total += 6;
+                }
+                if(document.getElementById('dinner').checked){
+                    s = s + "<tr><td>Dinner Buffet</td><td>$6</td></tr>";
+                    total += 6;
+                }
+            }
+            s = s + "<hr><tr><td>Total</td><td>$" + total +" / INR "+ total*73.295.toFixed(2) +"</td></table>";
+            document.getElementById('billInfo').innerHTML = s;
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
