@@ -1,4 +1,4 @@
-<h1 align="center"> Hacktoberfest 2020 </h1>
+<h1 align="center"> Hacktoberfest 2021 </h1>
 
 ***
 

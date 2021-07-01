@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>filter</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+</head>
+<body>
+	<h1>Angular Js filters</h1>
+	 <div ng-app="myApp" ng-controller="namesCtrl">
+	 	<p>Type a letter in the input field:</p>
+
+
+        <p><input type="text" ng-model="test"></p>
+
+        <ul>
+        	
+        <li ng-repeat="x in names | filter:test">
+        	{{ x }}
+
+        </li>
+        </ul> 
+        </div>  
+
+       <script>
+       	  angular.module('myApp', []).controller('namesCtrl' ,function($scope) {
+                $scope.names = [
+                   'lanky',
+                   'jannetr',
+                   'mikkyt',
+                   'fersdffg',
+                   'asdrty',
+                   'opdre',
+                   'wqawer',
+                   'ityup',
+                   'jhtyii',
+
+                ];
+
+       	  });
+
+       </script>      	
+</body>
+</html>

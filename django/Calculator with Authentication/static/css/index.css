@@ -1,0 +1,14 @@
+.myDiv
+{
+    background-color: lightblue;
+    color: black;
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+}
+.buttons{
+    float: right;
+}
+.deleteAll{
+    clear: both;
+}

@@ -1,0 +1,85 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 4
+void push();
+void pup();
+void display();
+int top=-1;
+int a[size];
+int main()
+{
+    int d;
+    while(1)
+    {
+        printf("\n\n\n LIST OF CHOICES AND MENU");
+        printf("=========================>>");
+        printf("\n 1. PUSH");
+        printf("\n 2. POP");
+        printf("\n 3. DISPLAY");
+        printf("\n 4. BYE BYE");
+        printf("\n enter your choice=");
+        scanf("%d",&d);
+        switch(d)
+        {
+        case 1:
+            {
+                push();
+                break;
+            }
+            case 2:
+            {
+                pop();
+                break;
+            }
+            case 3:
+            {
+                display();
+                break;
+            }
+            case 4:
+            {
+                exit(0);
+            }
+            default:
+            {
+                printf("\n INVALID INPUT !!!!!!");
+            }
+        }
+    }
+}
+void push()
+{
+    int n;
+    if(top<size)
+    {
+        printf("\n enter a number: ");
+        scanf("%d",&n);
+        printf("\n %d is inserted.......",n);
+        ++top;
+        a[top]=n;
+    }
+    else
+        printf("\n STACK OVERFLOW.......");
+}
+void pop()
+{
+    if(top!=-1)
+    {
+        printf("\n %d is removed........",a[top]);
+        a[top]=0;
+        top--;
+    }
+    else
+        printf("\n STACK UNDERFLOW........");
+}
+void display()
+{
+    int i;
+    if(top==-1)
+        printf("\n no element to display");
+    printf("\n the resultant stack is ====>>" );
+    for(i=top;i>=0;i--)
+    {
+         printf(" %d ",a[i]);
+    }
+}

@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+{%block content%}
+<form action="" method="POST" class="myDiv">
+    {%csrf_token%}
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="fn">First Name</label>
+                <input type="text" name="first_name" id="fn" class="form-control">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="em">Email</label>
+                <input type="email" name="email" id="em" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="un">UserName</label>
+                <input type="text" name="username" id="un" class="form-control">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="pw">Password</label>
+                <input type="password" name="password" id="pw" class="form-control">
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="SignUp" class="btn btn-outline-success">
+</form>
+{%endblock%}

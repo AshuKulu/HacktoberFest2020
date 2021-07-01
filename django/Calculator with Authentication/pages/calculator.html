@@ -1,0 +1,53 @@
+{% extends "base.html"%}
+{%block content%}
+<h3>Result {{result}}</h3>
+<form action="" method="POST">
+    {%csrf_token%}
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="Num1">Enter your first number</label>
+                <input type="number" name="num1" id="Num1" class="form-control">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="Num2">Enter your second number</label>
+                <input type="number" name="num2" id="Num2" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <select name="operator" id="op" class="form-control">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="**">**</option>
+                </select>
+            </div>
+        </div>
+        <div class="col">
+            <input type="submit" value="Answer" class="btn btn-outline-primary">
+        </div>
+    </div>
+</form>
+<table>
+    <tr>
+        <th>Num 1</th>
+        <th>Num 2</th>
+        <th>Operator</th>
+        <th>Result</th>
+    </tr>
+    {% for item in ur %}
+    <tr>
+        <td>{{item.num1}}</td>
+        <td>{{item.num2}}</td>
+        <td>{{item.operator}}</td>
+        <td>{{item.result}}</td>
+    </tr>
+    {%endfor%}
+</table>
+{%endblock%}

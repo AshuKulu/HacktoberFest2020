@@ -1,0 +1,111 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 3
+void insert();
+void delete();
+void display();
+int front=-1;
+int rear =-1;
+int a[size];
+int main()
+{
+    int d;
+    while(1)
+    {
+        printf("\n\n\n LIST OF CHOICES AND MENU");
+        printf("=========================>>");
+        printf("\n 1. insert");
+        printf("\n 2. delete");
+        printf("\n 3. DISPLAY");
+        printf("\n 4. BYE BYE");
+        printf("\n enter your choice=");
+        scanf("%d",&d);
+        switch(d)
+        {
+        case 1:
+            {
+                insert();
+                break;
+            }
+            case 2:
+            {
+                delete();
+                break;
+            }
+            case 3:
+            {
+                display();
+                break;
+            }
+            case 4:
+            {
+                exit(0);
+            }
+            default:
+            {
+                printf("\n INVALID INPUT !!!!!!");
+            }
+        }
+    }
+}
+void insert()
+{
+    int n;
+    if(rear<size)
+    {
+        printf("\n enter a number: ");
+        scanf("%d",&n);
+        printf("\n %d is inserted.......",n);
+        if(front==-1 && rear==-1)
+        {
+            front=0;
+            rear=0;
+            a[rear]=n;
+        }
+        else
+        {
+            ++rear;
+            a[rear]=n;
+        }
+    }
+
+    else
+        printf("\n QUEUE OVERFLOW.......");
+}
+void delete()
+{
+    if(front==-1 && rear==-1)
+    {
+         printf("\n QUEUE UNDERFLOW........");
+
+    }
+    else
+    {
+        printf("\n iten popped =%d",a[front]);
+        if(front==rear)
+        {
+         front =-1; rear=-1;
+        }
+        else
+        {
+            front+=1;
+        }
+
+    }
+}
+void display()
+{
+    int i;
+    printf("\n the resultant queue is ====>>" );
+    if(front==-1 && rear==-1)
+    {
+        printf("\n there is no element to display");
+    }
+    else
+    {
+     for(i=front;i<=rear;i++)
+     {
+         printf(" %d ",a[i]);
+     }
+    }
+}
