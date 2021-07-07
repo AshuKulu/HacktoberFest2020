@@ -1,0 +1,78 @@
+#include <iostream>
+#define maxN 10e5+1
+using namespace std;
+
+
+int getminvertex(int* dist,int n,bool* visited){
+
+    int minver=-1;   //check -1
+    for(int i=0;i<n;i++){
+        if(visited[i]!=true && (minver==-1 || dist[i]<dist[minver])){
+            minver=i;
+        }
+    }
+    return minver;
+}
+
+void dijsktra(int ** edges,int n){
+    
+    bool* visited=new bool[n];
+    int* dist=new int[n];
+    for(int i=0;i<n;i++){
+        dist[i]=maxN;
+    }
+    dist[0]=0;
+    
+    for(int i=0;i<n-1;i++){
+        int minvertex=getminvertex(dist,n,visited);
+        
+        visited[minvertex]=true;
+        for(int j=0;j<n;j++){
+            if(edges[minvertex][j] && !visited[j]){
+                if(dist[j]>(dist[minvertex]+edges[minvertex][j])){
+                    dist[j]=dist[minvertex]+edges[minvertex][j];
+                }
+            }
+        }
+         
+    }
+    for(int i=0;i<n;i++){
+        cout<<i<<" "<<dist[i]<<endl;
+    }
+    delete [] dist;
+    delete [] visited;
+}
+
+int main()
+{
+  int n, e, tempX, tempY;
+  cin >> n>> e;
+
+   int** edges = new int*[n];
+    for(int i=0;i<n;i++)
+    {
+        edges[i]=new int[n];
+        for(int j=0;j<n;j++)
+        {
+            edges[i][j]=0;
+        }
+    }
+
+    for(int i=0;i<e;i++)
+    {
+        int s,d,wt;
+        cin>>s>>d>>wt;
+        edges[s][d]=wt;
+        edges[d][s]=wt;
+    }
+
+    dijsktra(edges,n);
+
+    for(int i=0;i<n;i++)
+    {
+        delete [] edges[i];
+    }
+    delete [] edges;
+
+  return 0;
+}
